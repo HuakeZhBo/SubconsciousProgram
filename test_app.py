@@ -5,12 +5,13 @@ from rich.console import Console
 from typing import Optional
 
 try:
-    api_key = st.secrets["DEEPSEEK_API_KEY"]
+    ds_key = st.secrets["DEEPSEEK_API_KEY"]
 except Exception:
-    api_key = ""
+    ds_key = ""
+print(ds_key)
 
 client = OpenAI(
-    api_key,
+    api_key=ds_key,
     base_url="https://api.deepseek.com"
 )
 
