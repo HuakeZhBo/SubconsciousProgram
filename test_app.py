@@ -4,12 +4,13 @@ from openai import OpenAI
 from rich.console import Console
 from typing import Optional
 
+try:
+    api_key = st.secrets["DEEPSEEK_API_KEY"]
+except Exception:
+    api_key = ""
+
 client = OpenAI(
-    try:
-        api_key = st.secrets["DEEPSEEK_API_KEY"]
-    except Exception:
-        api_key = ""
-        pass
+    api_key,
     base_url="https://api.deepseek.com"
 )
 
